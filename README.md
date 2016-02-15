@@ -1,2 +1,2 @@
 # dotfiles
-Dofiles
+Dotfiles
