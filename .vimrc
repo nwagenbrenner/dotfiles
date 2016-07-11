@@ -49,6 +49,7 @@ set t_Co=16
 colorscheme solarized
 set background=dark
 
+set colorcolumn=80
 set showmatch  " Show matching brackets.
 set nu  "show line numbers
 set matchtime=5  " Bracket blinking.
