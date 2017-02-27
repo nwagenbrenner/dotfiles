@@ -1,6 +1,5 @@
 
 set cpoptions+=$
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 "--------------------------------------------------------------------- 
@@ -11,9 +10,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -39,6 +38,12 @@ set smartcase     " be sensitive when there's a capital letter
 set incsearch   "
 
 "--------------------------------------------------------------------- 
+"    Finding files
+"--------------------------------------------------------------------- 
+set path+=** " Search down into subfolders
+set wildmenu " Display matching files when we tab complete
+
+"--------------------------------------------------------------------- 
 "    Visual
 "--------------------------------------------------------------------- 
 "colorscheme desert
@@ -50,7 +55,7 @@ set t_Co=16
 colorscheme solarized
 set background=dark
 
-set colorcolumn=80
+"set colorcolumn=80
 set showmatch  " Show matching brackets.
 set nu  "show line numbers
 set matchtime=5  " Bracket blinking.
@@ -70,7 +75,7 @@ map <C-n> :NERDTreeToggle<cr> "C-n to toggle nerdtree on/off
 "    ctags
 "--------------------------------------------------------------------- 
 set notagrelative "paths not relative to tags directory (.git/)
-
+command! MakeTags !ctags -R . 
 
 "--------------------------------------------------------------------- 
 "    fugitive
@@ -97,12 +102,5 @@ set softtabstop=4
 set shiftwidth=4
 filetype indent on
 
-"Open each buffer in its own tab
-"I don't think I like this...
-"au BufAdd,BufNewFile * nested tab sball
-
 "Code completion
 au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
-
-"Not sure this is needed or working...
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
